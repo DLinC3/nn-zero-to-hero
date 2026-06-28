@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# experiment outputs
+out/
+outputs/
+runs/
+checkpoints/
+ckpt/
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# wandb
+wandb/
+
+# data / corpora
+data/
+datasets/
+corpus/
+*.tfrecord
+*.npy
+*.npz
+
+# Keep upstream snapshot source/data files visible to this repo.
+!book/07-build-gpt/nanoGPT/data/
+!book/07-build-gpt/nanoGPT/data/**
+!book/09-reproduce-gpt2/llm.c/dev/data/
+!book/09-reproduce-gpt2/llm.c/dev/data/**
+
+# build artifacts
+build/
+dist/
+*.egg-info/
+
+# server/cloud artifacts
+slurm-*.out
+*.err
+*.pid

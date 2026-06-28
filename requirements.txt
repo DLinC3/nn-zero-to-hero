@@ -1,0 +1,12 @@
+numpy
+matplotlib
+jupyterlab
+ipykernel
+torch
+tqdm
+regex
+tiktoken
+transformers
+datasets
+graphviz
+pytest
