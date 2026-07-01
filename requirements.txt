@@ -1,12 +1,25 @@
-numpy
+# Shared study environment for all lectures, exercises, and local snapshots.
+numpy<2
 matplotlib
+pandas
+scipy
+scikit-learn
+
 jupyterlab
 ipykernel
+ipywidgets
+
 torch
 tqdm
 regex
 tiktoken
 transformers
 datasets
+requests
 graphviz
 pytest
+setuptools
+
+# Optional helpers used by copied reference/dev scripts.
+wandb
+modal

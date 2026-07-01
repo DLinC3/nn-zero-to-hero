@@ -1,0 +1,40 @@
+[project]
+name = "nn-zero-to-hero-study"
+version = "0.1.0"
+description = "Local study environment for Karpathy's Neural Networks: Zero to Hero lectures and exercises."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy<2",
+    "matplotlib",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "jupyterlab",
+    "ipykernel",
+    "ipywidgets",
+    "torch==2.12.1+cu130",
+    "tqdm",
+    "regex",
+    "tiktoken",
+    "transformers",
+    "datasets",
+    "requests",
+    "graphviz",
+    "pytest",
+    "setuptools",
+    "wandb",
+    "modal",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu130" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
