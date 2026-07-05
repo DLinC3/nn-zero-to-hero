@@ -1,22 +1,22 @@
-# Extra — microgpt
+# Extra - microgpt Capstone
 
-Optional capstone after finishing the main Zero to Hero path.
+Goal: compress autograd, tokenization, GPT, Adam, training, and sampling into one file.
 
-## Karpathy material
+## Order
 
-- [microgpt blog post](https://karpathy.github.io/2026/02/12/microgpt/)
-- [microgpt gist](https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95)
+1. Read Karpathy's blog post: https://karpathy.github.io/2026/02/12/microgpt/
+2. Read [`microgpt.py`](microgpt.py).
+3. Review CS182 [L5](cs182/lec-05-backpropagation.pdf), [L7](cs182/lec-07-getting-neural-nets-to-train.pdf), [L12](cs182/lec-12-transformers.pdf), [L13](cs182/lec-13-applications-nlp.pdf).
 
-## CS182 quick review
+## Exercises
 
-- [CS182 Lecture 5: Backpropagation](https://cs182sp21.github.io/static/slides/lec-5.pdf)
-- [CS182 Lecture 7: Getting Neural Nets to Train](https://cs182sp21.github.io/static/slides/lec-7.pdf)
-- [CS182 Lecture 12: Transformers](https://cs182sp21.github.io/static/slides/lec-12.pdf)
-- [CS182 Lecture 13: Applications: NLP](https://cs182sp21.github.io/static/slides/lec-13.pdf)
+- No exercise list is given for this optional capstone.
+- Official gist/source: https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95
 
-`microgpt` compresses ideas from micrograd, makemore, GPT, tokenization, optimization, and training into one small file. It is not a replacement for any main lecture.
+## Insights
 
-## Local files
+- A small file can expose the whole training stack.
+- microgpt is a capstone after the main path, not a replacement for it.
+- Every major idea should map back to an earlier Zero to Hero stage.
 
-- `microgpt.py`
-- `notes.ipynb`
+Back to: [`../../README.md`](../../README.md)

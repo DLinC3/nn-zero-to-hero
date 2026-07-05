@@ -1,31 +1,29 @@
-# 01 — micrograd
+# 01 - micrograd
 
-Karpathy Lecture 1 + CS182 Phase 0 / backprop support.
+Goal: understand backprop as local chain rule on a scalar computation graph.
 
-## Phase 0
+## Order
 
-- [CS182 Lecture 1: Introduction](https://cs182sp21.github.io/static/slides/lec-1.pdf)
+1. Skim CS182 [L1 Introduction](cs182/lec-01-introduction.pdf).
+2. Watch Karpathy: [micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0).
+3. Run:
+   - [`micrograd_lecture_first_half_roughly.ipynb`](micrograd_lecture_first_half_roughly.ipynb)
+   - [`micrograd_lecture_second_half_roughly.ipynb`](micrograd_lecture_second_half_roughly.ipynb)
+   - [`micrograd_exercise.ipynb`](micrograd_exercise.ipynb)
+4. Read:
+   - [`micrograd/micrograd/engine.py`](micrograd/micrograd/engine.py)
+   - [`micrograd/micrograd/nn.py`](micrograd/micrograd/nn.py)
+5. Read CS182 [L5 Backpropagation](cs182/lec-05-backpropagation.pdf).
 
-representation learning, supervised learning, loss functions, optimization, and why deep networks are useful.
+## Exercises
 
-## Main lecture
+- Official Colab from the video description: https://colab.research.google.com/drive/1FPTx1RXtBfc4MaTkf7viZZD4U2F9gtKN?usp=sharing
+- Local copy/workbook: [`micrograd_exercise.ipynb`](micrograd_exercise.ipynb)
 
-- [Video: The spelled-out intro to neural networks and backpropagation](https://www.youtube.com/watch?v=VMj-3S1tku0)
-- [Official notebooks](https://github.com/karpathy/nn-zero-to-hero/tree/master/lectures/micrograd)
-- [micrograd repo](https://github.com/karpathy/micrograd)
-- [Colab exercise](https://colab.research.google.com/drive/1FPTx1RXtBfc4MaTkf7viZZD4U2F9gtKN?usp=sharing)
+## Insights
 
-## CS182 pairing
+- Topological order is what lets `backward()` apply the chain rule once per node.
+- Gradients accumulate because one value can feed multiple later operations.
+- PyTorch autograd is the same idea, lifted from scalars to tensors.
 
-- [CS182 Lecture 5: Backpropagation](https://cs182sp21.github.io/static/slides/lec-5.pdf)
-- [CS182 Discussion 2: Matrix Calc & Optimization](https://cs182sp21.github.io/static/discussions/dis2.pdf)
-
-Karpathy gives the scalar-level autograd intuition. CS182 gives the layer/matrix-level backprop notation.
-
-## Local files
-
-- `micrograd_lecture_first_half_roughly.ipynb`
-- `micrograd_lecture_second_half_roughly.ipynb`
-- `micrograd_exercise.ipynb`
-- `notes.ipynb`
-- `micrograd/`
+Next: [`02-makemore-bigram`](../02-makemore-bigram/)

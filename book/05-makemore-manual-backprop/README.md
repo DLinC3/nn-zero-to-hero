@@ -1,23 +1,26 @@
-# 05 — makemore Part 4: Manual Backprop
+# 05 - makemore Part 4: Manual Backprop
 
-Manual tensor-level backprop through cross-entropy, linear layers, tanh, BatchNorm, and embeddings.
+Goal: manually write the tensor gradients that PyTorch autograd usually hides.
 
-## Main lecture
+## Order
 
-- [Video: makemore Part 4](https://www.youtube.com/watch?v=q8SA3rM6ckI)
-- [Official notebook](https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/makemore/makemore_part4_backprop.ipynb)
-- [makemore repo](https://github.com/karpathy/makemore)
-- [Colab exercise](https://colab.research.google.com/drive/1WV2oi2fh9XXyldh02wvdFpC0rqee84cj?usp=sharing)
+1. Open the exercise first: https://colab.research.google.com/drive/1WV2oi2fh9XXyldh02wupFQX0wh5ZC-z-?usp=sharing
+2. Watch Karpathy: [makemore Part 4](https://www.youtube.com/watch?v=q8SA3rM6ckI), pausing to solve each section.
+3. Run [`makemore_part4_backprop.ipynb`](makemore_part4_backprop.ipynb).
+4. Re-read CS182 [L5 Backpropagation](cs182/lec-05-backpropagation.pdf).
 
-## CS182 pairing
+## Exercises
 
-- [CS182 Lecture 5: Backpropagation](https://cs182sp21.github.io/static/slides/lec-5.pdf)
+- Work through the official Colab in tandem with the video.
+- Exercise 1: backprop the atomic compute graph.
+- Exercise 2: backprop cross-entropy loss.
+- Exercise 3: backprop BatchNorm.
+- Exercise 4: put the full backward pass together.
 
-Karpathy turns backprop into tensor code. CS182 supplies the compact matrix formulas and training-stability context.
+## Insights
 
-## Local files
+- Broadcasting, reduction, and indexing all have concrete backward rules.
+- Manual gradients make tensor shape bugs visible.
+- Autograd is a convenience, not magic.
 
-- `makemore_part4_backprop.ipynb`
-- `manual_backprop_exercise.ipynb`
-- `names.txt`
-- `notes.ipynb`
+Next: [`06-makemore-wavenet`](../06-makemore-wavenet/)

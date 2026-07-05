@@ -1,21 +1,24 @@
-# 03 — makemore Part 2: MLP
+# 03 - makemore Part 2: MLP
 
-Embedding table, MLP language model, training loop, learning rate, and train/dev/test split.
+Goal: move from bigrams to context windows, embeddings, and an MLP language model.
 
-## Main lecture
+## Order
 
-- [Video: makemore Part 2](https://www.youtube.com/watch?v=TCH_1BHY58I)
-- [Official notebook](https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/makemore/makemore_part2_mlp.ipynb)
-- [makemore repo](https://github.com/karpathy/makemore)
+1. Watch Karpathy: [makemore Part 2](https://www.youtube.com/watch?v=TCH_1BHY58I).
+2. Run [`makemore_part2_mlp.ipynb`](makemore_part2_mlp.ipynb).
+3. Read CS182 [L4 Optimization](cs182/lec-04-optimization.pdf).
 
-## CS182 pairing
+## Exercises
 
-- [CS182 Lecture 4: Optimization](https://cs182sp21.github.io/static/slides/lec-4.pdf)
+- Official Colab: https://colab.research.google.com/drive/1YIfmkftLrz6MPTOO9Vwqrop2Q5llHIGK?usp=sharing
+- E01: Tune hyperparameters to beat Karpathy's validation loss of 2.2.
+- E02: Compute the uniform-probability initial loss; tune initialization so the starting loss is close to it.
+- E03: Read Bengio et al. 2003 and implement one idea from the paper.
 
-Karpathy makes the MLP concrete. CS182 explains SGD, minibatches, learning rates, Adam, and generalization.
+## Insights
 
-## Local files
+- Embeddings are learned row lookups.
+- Train/dev/test splits separate fitting, tuning, and final evaluation.
+- Learning rate and initialization are part of the model's behavior, not bookkeeping.
 
-- `makemore_part2_mlp.ipynb`
-- `names.txt`
-- `notes.ipynb`
+Next: [`04-makemore-batchnorm`](../04-makemore-batchnorm/)

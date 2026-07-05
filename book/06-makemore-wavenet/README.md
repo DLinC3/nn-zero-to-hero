@@ -1,22 +1,24 @@
-# 06 — makemore Part 5: WaveNet-like model
+# 06 - makemore Part 5: WaveNet
 
-A deeper character-level model with grouped context, `torch.nn`, and shape debugging.
+Goal: build a deeper character model and keep exact control of tensor shapes.
 
-## Main lecture
+## Order
 
-- [Video: makemore Part 5](https://www.youtube.com/watch?v=t3YJ5hKiMQ0)
-- [Official notebook](https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/makemore/makemore_part5_cnn1.ipynb)
-- [makemore repo](https://github.com/karpathy/makemore)
+1. Watch Karpathy: [makemore Part 5](https://www.youtube.com/watch?v=t3YJ5hKiMQ0).
+2. Run [`makemore_part5_cnn1.ipynb`](makemore_part5_cnn1.ipynb).
+3. Skim CS182 [L6 Convolutional Networks](cs182/lec-06-convolutional-nets.pdf).
+4. Skim CS182 [L10 Recurrent Networks](cs182/lec-10-recurrent-neural-networks.pdf).
 
-## CS182 pairing
+## Exercises
 
-- [CS182 Lecture 6: Convolutional Nets](https://cs182sp21.github.io/static/slides/lec-6.pdf)
-- [CS182 Lecture 10: Recurrent Neural Networks](https://cs182sp21.github.io/static/slides/lec-10.pdf)
+- Official Colab: https://colab.research.google.com/drive/1CXVEmCO_7r7WYZGb5qnjfyxTvQa13g5X?usp=sharing
+- No separate exercise list is given in the video description.
+- Official challenge from the video chapters: improve on Karpathy's WaveNet loss.
 
-Karpathy builds a WaveNet-like model. CS182 helps with receptive fields, weight sharing, sequence bottlenecks, and why long-range dependency is hard.
+## Insights
 
-## Local files
+- `FlattenConsecutive` grows the receptive field.
+- Shape discipline is the bridge from makemore to Transformer code.
+- WaveNet motivates hierarchical sequence modeling before attention.
 
-- `makemore_part5_cnn1.ipynb`
-- `names.txt`
-- `notes.ipynb`
+Next: [`07-build-gpt`](../07-build-gpt/)

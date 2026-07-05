@@ -1,21 +1,32 @@
-# 08 — GPT Tokenizer
+# 08 - GPT Tokenizer
 
-Byte Pair Encoding, tokenization, encode/decode, and why LLMs see text through tokens.
+Goal: understand that LLMs operate on tokens, not raw strings.
 
-## Main lecture
+## Order
 
-- [Video: Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE)
-- [minbpe repo](https://github.com/karpathy/minbpe)
-- [Colab exercise](https://colab.research.google.com/drive/1y0KnCFZvGVfZacS5GqnJMjxG7ZGQRNys?usp=sharing)
+1. Watch Karpathy: [GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE).
+2. Read [`minbpe/lecture.md`](minbpe/lecture.md).
+3. Do [`minbpe/exercise.md`](minbpe/exercise.md).
+4. Read:
+   - [`minbpe/minbpe/basic.py`](minbpe/minbpe/basic.py)
+   - [`minbpe/minbpe/regex.py`](minbpe/minbpe/regex.py)
+   - [`minbpe/minbpe/gpt4.py`](minbpe/minbpe/gpt4.py)
+5. Skim CS182 [L13 Applications: NLP](cs182/lec-13-applications-nlp.pdf).
 
-## CS182 pairing
+## Exercises
 
-- [CS182 Lecture 13: Applications: NLP](https://cs182sp21.github.io/static/slides/lec-13.pdf)
+- Official Colab: https://colab.research.google.com/drive/1y0KnCFZvGVf_odSfcNAws6kcDD7HsI0L?usp=sharing
+- Official exercise file: [`minbpe/exercise.md`](minbpe/exercise.md)
+- Implement `BasicTokenizer`.
+- Convert it to `RegexTokenizer`.
+- Match GPT-4 tokenizer behavior with `tiktoken`.
+- Add special tokens.
+- Optional stretch: explore SentencePiece/Llama-style tokenization.
 
-Karpathy teaches the tokenizer itself. CS182 gives the NLP background: word embeddings, contextual representations, pretraining, BERT, and GPT.
+## Insights
 
-## Local files
+- BPE learns token chunks outside the neural network.
+- Tokenization explains many odd LLM behaviors.
+- Token ids connect directly to the GPT embedding table.
 
-- `minbpe/`
-- `tokenizer_exercise.ipynb`
-- `notes.ipynb`
+Next: [`09-reproduce-gpt2`](../09-reproduce-gpt2/)

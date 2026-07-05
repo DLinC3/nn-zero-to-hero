@@ -1,17 +1,22 @@
-# 10 — Deep Dive into LLMs
+# 10 - Deep Dive into LLMs
 
-Conceptual companion lecture for connecting the code path to modern LLMs.
+Goal: connect the code path to the full LLM system picture.
 
-## Main Karpathy lecture
+## Order
 
-- [Video: Deep Dive into LLMs](https://www.youtube.com/watch?v=7xTGNNLPyMI)
+1. Watch Karpathy: [Deep Dive into LLMs](https://www.youtube.com/watch?v=7xTGNNLPyMI).
+2. Review CS182 [L13 Applications: NLP](cs182/lec-13-applications-nlp.pdf).
+3. Skim CS182 [L17 Generative Modeling](cs182/lec-17-generative-models.pdf).
 
-## CS182 quick review
+## Exercises
 
-- [CS182 Lecture 13: Applications: NLP](https://cs182sp21.github.io/static/slides/lec-13.pdf)
+- No exercise list is given in the video description.
+- Official visual source from the description: https://drive.google.com/file/d/1EZh5hNDzxMMy05uLhVryk061QYQGTxiN/view?usp=sharing
 
-Karpathy gives the modern LLM story. CS182 gives the older but clean academic map: representation learning, Transformers, pretraining, BERT, and GPT.
+## Insights
 
-## Local files
+- LLM behavior is a product of data, tokenization, architecture, training, post-training, and inference.
+- Pretraining and post-training optimize different objectives.
+- System-level understanding explains failures better than architecture alone.
 
-- `notes.ipynb`
+Next: [`App-microgpt`](../App-microgpt/)

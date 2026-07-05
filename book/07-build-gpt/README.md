@@ -1,27 +1,27 @@
-# 07 — Let's build GPT
+# 07 - Let's Build GPT
 
-Build a decoder-only Transformer / GPT from scratch.
+Goal: build a decoder-only Transformer from bigram baseline to masked self-attention.
 
-## CS182 preview
+## Order
 
-- [CS182 Lecture 11: Sequence To Sequence Models](https://cs182sp21.github.io/static/slides/lec-11.pdf)
-- [CS182 Discussion 7: Attention & Transformers](https://cs182sp21.github.io/static/discussions/dis7.pdf)
+1. Skim CS182 [L11 Sequence to Sequence](cs182/lec-11-sequence-to-sequence.pdf).
+2. Watch Karpathy: [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY).
+3. Follow [`ng-video-lecture/bigram.py`](ng-video-lecture/bigram.py) and [`ng-video-lecture/gpt.py`](ng-video-lecture/gpt.py).
+4. Read CS182 [L12 Transformers](cs182/lec-12-transformers.pdf).
+5. Compare with [`nanoGPT/model.py`](nanoGPT/model.py) and [`nanoGPT/train.py`](nanoGPT/train.py).
 
-## Main lecture
+## Exercises
 
-- [Video: Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY)
-- [Primary code-along repo: ng-video-lecture](https://github.com/karpathy/ng-video-lecture)
-- [Reference repo: nanoGPT](https://github.com/karpathy/nanoGPT)
+- Official Colab: https://colab.research.google.com/drive/1JMLa53HDuA-i7ZBmqV7ZnA3c_fvtXnx-?usp=sharing
+- EX1: Combine `Head` and `MultiHeadAttention` into one parallel multi-head class.
+- EX2: Train GPT on your own dataset; optional advanced task: teach it addition.
+- EX3: Pretrain on a large dataset, then finetune on tiny Shakespeare.
+- EX4: Read Transformer papers and implement one useful feature or change.
 
-## CS182 pairing
+## Insights
 
-- [CS182 Lecture 11: Sequence To Sequence Models](https://cs182sp21.github.io/static/slides/lec-11.pdf)
-- [CS182 Discussion 7: Attention & Transformers](https://cs182sp21.github.io/static/discussions/dis7.pdf)
+- Attention is data-dependent weighted aggregation.
+- Causal masking prevents future-token communication.
+- Residual paths, LayerNorm, and multi-head attention make the block trainable and expressive.
 
-Karpathy makes GPT real in code. CS182 explains the attention bottleneck, Q/K/V, masked self-attention, multi-head attention, positional encoding, and Transformer blocks.
-
-## Local files
-
-- `ng-video-lecture/`
-- `nanoGPT/`
-- `notes.ipynb`
+Next: [`08-tokenizer`](../08-tokenizer/)
