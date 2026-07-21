@@ -1,22 +1,15 @@
-# 10 - Deep Dive into LLMs
+# 10 — deep dive into LLMs
 
-Goal: connect the code path to the full LLM system picture.
+Connect the code built so far to the complete lifecycle of a modern language model.
 
-## Order
+## Build
 
-1. Watch Karpathy: [Deep Dive into LLMs](https://www.youtube.com/watch?v=7xTGNNLPyMI).
-2. Review CS182 [L13 Applications: NLP](cs182/lec-13-applications-nlp.pdf).
-3. Skim CS182 [L17 Generative Modeling](cs182/lec-17-generative-models.pdf).
+A system-level model of tokenization, pretraining, post-training, evaluation, inference, and deployment.
 
-## Exercises
+## Path
 
-- No exercise list is given in the video description.
-- Official visual source from the description: https://drive.google.com/file/d/1EZh5hNDzxMMy05uLhVryk061QYQGTxiN/view?usp=sharing
+1. Watch: [Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI).
+2. Review the earlier tokenizer, GPT, and GPT-2 reproduction stages as one pipeline.
+3. Watch CS182 [Lecture 17: Generative Models](https://www.youtube.com/watch?v=y380v-Mtvzo&list=PL_iWQOsE6TfVmKkQHucjPAoRtIJYt8a5A).
 
-## Insights
-
-- LLM behavior is a product of data, tokenization, architecture, training, post-training, and inference.
-- Pretraining and post-training optimize different objectives.
-- System-level understanding explains failures better than architecture alone.
-
-Next: [`App-microgpt`](../App-microgpt/)
+Next: [`Extra — microgpt`](../App-microgpt/)

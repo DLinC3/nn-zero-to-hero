@@ -1,24 +1,16 @@
-# 06 - makemore Part 5: WaveNet
+# 06 — WaveNet
 
-Goal: build a deeper character model and keep exact control of tensor shapes.
+Replace a fixed context window with a deeper hierarchical model while keeping exact control of tensor shapes.
 
-## Order
+## Build
 
-1. Watch Karpathy: [makemore Part 5](https://www.youtube.com/watch?v=t3YJ5hKiMQ0).
+A WaveNet-style character language model using hierarchical temporal grouping.
+
+## Path
+
+1. Watch: [Building makemore Part 5: Building WaveNet](https://www.youtube.com/watch?v=t3YJ5hKiMQ0).
 2. Run [`makemore_part5_cnn1.ipynb`](makemore_part5_cnn1.ipynb).
-3. Skim CS182 [L6 Convolutional Networks](cs182/lec-06-convolutional-nets.pdf).
-4. Skim CS182 [L10 Recurrent Networks](cs182/lec-10-recurrent-neural-networks.pdf).
+3. Read the [WaveNet paper](resources/WAVENET.pdf).
+4. Watch CS182 [Lecture 6: Convolutional Networks](https://www.youtube.com/watch?v=jNW1Hi7Yi4c&list=PL_iWQOsE6TfVmKkQHucjPAoRtIJYt8a5A) and [Lecture 10: Recurrent Neural Networks](https://www.youtube.com/watch?v=PyZvbaC5oQY&list=PL_iWQOsE6TfVmKkQHucjPAoRtIJYt8a5A).
 
-## Exercises
-
-- Official Colab: https://colab.research.google.com/drive/1CXVEmCO_7r7WYZGb5qnjfyxTvQa13g5X?usp=sharing
-- No separate exercise list is given in the video description.
-- Official challenge from the video chapters: improve on Karpathy's WaveNet loss.
-
-## Insights
-
-- `FlattenConsecutive` grows the receptive field.
-- Shape discipline is the bridge from makemore to Transformer code.
-- WaveNet motivates hierarchical sequence modeling before attention.
-
-Next: [`07-build-gpt`](../07-build-gpt/)
+Next: [`07 — build GPT`](../07-build-gpt/)

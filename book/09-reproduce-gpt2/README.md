@@ -1,26 +1,16 @@
-# 09 - Reproduce GPT-2 124M
+# 09 — reproduce GPT-2
 
-Goal: turn GPT code into a reproducible training run.
+Turn the GPT architecture into a reproducible training and evaluation pipeline.
 
-## Order
+## Build
 
-1. Watch Karpathy: [Reproduce GPT-2 124M](https://www.youtube.com/watch?v=l8pRSuU81PU).
-2. Read [`build-nanogpt/README.md`](build-nanogpt/README.md).
-3. Run/read [`build-nanogpt/play.ipynb`](build-nanogpt/play.ipynb).
-4. Deep-read [`build-nanogpt/train_gpt2.py`](build-nanogpt/train_gpt2.py).
-5. Read [`build-nanogpt/fineweb.py`](build-nanogpt/fineweb.py) and [`build-nanogpt/hellaswag.py`](build-nanogpt/hellaswag.py).
-6. Review CS182 [L4](cs182/lec-04-optimization.pdf), [L7](cs182/lec-07-getting-neural-nets-to-train.pdf), [L12](cs182/lec-12-transformers.pdf), [L13](cs182/lec-13-applications-nlp.pdf).
+A GPT-2 124M training run with data loading, optimizer scheduling, mixed precision, distributed training, validation, and HellaSwag evaluation.
 
-## Exercises
+## Path
 
-- No separate exercise list is given in the video description.
-- Official repo task: follow `build-nanogpt`, whose commits mirror the video: https://github.com/karpathy/build-nanogpt
-- Optional official engineering extension: [`llm.c/README.md`](llm.c/README.md)
+1. Watch: [Let's reproduce GPT-2 (124M)](https://www.youtube.com/watch?v=l8pRSuU81PU).
+2. Read [`build-nanogpt/README.md`](build-nanogpt/README.md) and run [`build-nanogpt/play.ipynb`](build-nanogpt/play.ipynb).
+3. Study [`train_gpt2.py`](build-nanogpt/train_gpt2.py), [`fineweb.py`](build-nanogpt/fineweb.py), and [`hellaswag.py`](build-nanogpt/hellaswag.py).
+4. Use [`llm.c`](llm.c/README.md) as an optional systems-level extension.
 
-## Insights
-
-- Reproduction depends on architecture, data, optimizer, schedule, batching, and eval.
-- GPT-2 training is mostly disciplined engineering around a simple Transformer.
-- HellaSwag and validation loss are part of the training loop, not afterthoughts.
-
-Next: [`10-deep-dive-llms`](../10-deep-dive-llms/)
+Next: [`10 — deep dive into LLMs`](../10-deep-dive-llms/)

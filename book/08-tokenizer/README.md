@@ -1,32 +1,16 @@
-# 08 - GPT Tokenizer
+# 08 — tokenizer
 
-Goal: understand that LLMs operate on tokens, not raw strings.
+Build the text-to-token boundary that sits in front of every GPT model.
 
-## Order
+## Build
 
-1. Watch Karpathy: [GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE).
-2. Read [`minbpe/lecture.md`](minbpe/lecture.md).
-3. Do [`minbpe/exercise.md`](minbpe/exercise.md).
-4. Read:
-   - [`minbpe/minbpe/basic.py`](minbpe/minbpe/basic.py)
-   - [`minbpe/minbpe/regex.py`](minbpe/minbpe/regex.py)
-   - [`minbpe/minbpe/gpt4.py`](minbpe/minbpe/gpt4.py)
-5. Skim CS182 [L13 Applications: NLP](cs182/lec-13-applications-nlp.pdf).
+A byte-level BPE tokenizer with training, encoding, decoding, regex splitting, and special-token support.
 
-## Exercises
+## Path
 
-- Official Colab: https://colab.research.google.com/drive/1y0KnCFZvGVf_odSfcNAws6kcDD7HsI0L?usp=sharing
-- Official exercise file: [`minbpe/exercise.md`](minbpe/exercise.md)
-- Implement `BasicTokenizer`.
-- Convert it to `RegexTokenizer`.
-- Match GPT-4 tokenizer behavior with `tiktoken`.
-- Add special tokens.
-- Optional stretch: explore SentencePiece/Llama-style tokenization.
+1. Watch: [Let's build the GPT Tokenizer](https://www.youtube.com/watch?v=zduSFxRajkE).
+2. Read [`minbpe/lecture.md`](minbpe/lecture.md) and complete [`minbpe/exercise.md`](minbpe/exercise.md).
+3. Read [`basic.py`](minbpe/minbpe/basic.py), [`regex.py`](minbpe/minbpe/regex.py), and [`gpt4.py`](minbpe/minbpe/gpt4.py).
+4. Watch CS182 [Lecture 13: NLP](https://www.youtube.com/watch?v=ZmjXgCQvmeA&list=PL_iWQOsE6TfVmKkQHucjPAoRtIJYt8a5A).
 
-## Insights
-
-- BPE learns token chunks outside the neural network.
-- Tokenization explains many odd LLM behaviors.
-- Token ids connect directly to the GPT embedding table.
-
-Next: [`09-reproduce-gpt2`](../09-reproduce-gpt2/)
+Next: [`09 — reproduce GPT-2`](../09-reproduce-gpt2/)
