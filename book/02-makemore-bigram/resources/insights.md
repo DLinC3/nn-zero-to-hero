@@ -1,0 +1,26 @@
+# Makemore Bigram — Review Insights
+
+- A language model assigns a probability distribution to the next token given a context.
+- A name of length `L` supplies `L + 1` next-character examples because the model must also learn when to stop.
+- `.` can represent both the empty left context and the end-of-name event.
+- A bigram model conditions on exactly one previous character and forgets all earlier history.
+- The count matrix stores one next-character categorical distribution per context row.
+- Row normalization converts nonnegative counts into conditional probabilities.
+- Broadcasting aligns dimensions from the right, so a missing singleton axis can silently normalize the wrong direction.
+- `keepdim=True` preserves row sums as `(V,1)` so they broadcast across columns.
+- Sampling repeatedly queries a conditional distribution, draws one token, and feeds that token back as context.
+- Samples are qualitative behavior checks; NLL is the quantitative model comparison.
+- Likelihood multiplies the probabilities assigned to every observed transition.
+- Log-likelihood turns a product of tiny probabilities into a sum of log probabilities.
+- Negative log likelihood is minimized when the model assigns high probability to observed targets.
+- Uniform predictions over `V` classes have expected NLL `log(V)`.
+- An unseen transition has zero probability and infinite NLL without smoothing.
+- Add-count smoothing trades sharp empirical estimates for nonzero support and a pull toward uniformity.
+- A one-hot vector multiplied by `W` simply selects one row of `W`.
+- A neural bigram stores logits for the same `V × V` table learned by the count model.
+- Softmax maps arbitrary logits to positive probabilities that sum to one.
+- Cross-entropy combines stable log-softmax with target NLL and should receive raw logits.
+- L2 pressure toward zero logits pulls softmax distributions toward uniformity, echoing count smoothing.
+- Counting solves bigram maximum likelihood directly; gradient descent reaches the same model through a differentiable parameterization.
+- Longer n-gram contexts reduce uncertainty but require exponentially more independent table rows.
+- Neural models scale by replacing isolated context rows with shared parameters while preserving `context → logits → loss`.

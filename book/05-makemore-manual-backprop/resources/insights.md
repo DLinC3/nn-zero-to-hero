@@ -1,0 +1,36 @@
+# Lesson 05 — Manual Backpropagation
+
+- Autograd is a leaky abstraction: it computes gradients but cannot prevent saturation, dead units, accidental gradient cuts, or unstable dynamics.
+- Manual tensor backprop is a learning and debugging exercise, not the recommended production workflow.
+- Every gradient has exactly the same shape as the variable it differentiates.
+- Backprop processes the computation graph in reverse topological order.
+- A local derivative transforms the gradient arriving from everything downstream.
+- A node used by multiple branches receives the sum of every branch's gradient contribution.
+- A forward sum becomes gradient replication across the summed dimension.
+- A forward broadcast becomes a gradient sum across the broadcast dimension.
+- Reductions and broadcasts are dual operations in forward and backward passes.
+- Indexing routes gradients only to selected entries; unselected entries receive zero.
+- Repeated embedding indices accumulate gradients into the same embedding row.
+- A reshape changes storage interpretation, so its backward pass only restores the original shape.
+- Elementwise multiplication sends each input the incoming gradient times the other input.
+- Matrix-multiply backward is another matrix multiply with transposes fixed by the required gradient shapes.
+- Linear bias gradients sum the output gradient across every example that reused the bias.
+- `tanh` backward is `(1 - tanh²) * upstream_gradient`.
+- Saturated `tanh` outputs near `±1` suppress the backward signal.
+- Softmax may subtract each row maximum for stability because adding a row constant leaves probabilities unchanged.
+- The gradient through the softmax maximum-shift branch cancels to numerical zero.
+- Atomic backward passes are transparent but retain unnecessary intermediates and miss algebraic cancellation.
+- Fused operations can be faster in both forward and backward passes because their derivatives simplify symbolically.
+- Softmax cross-entropy backward is `(probabilities - one_hot(target)) / batch_size`.
+- Each cross-entropy gradient row sums to zero: total downward force equals total upward force.
+- Wrong classes are pushed down in proportion to their predicted probabilities.
+- The target class is pulled up in proportion to its missing probability mass.
+- A correct, confident prediction produces an almost-zero cross-entropy gradient.
+- BatchNorm backward combines a direct term with corrections for the shared batch mean and variance.
+- BatchNorm's shared statistics couple every example's gradient to every other example in the mini-batch.
+- Bessel's correction replaces `N` with `N-1` in the sample variance and must also appear in its backward formula.
+- Gradient comparison should report exact equality, approximate equality, and maximum absolute error.
+- Small random initialization values expose derivative bugs that exact zeros can hide.
+- An end-to-end autograd comparison validates the compact manual formulas before autograd is removed.
+- Training needs only forward values, parameter gradients, and updates; `.grad` fields are a convenience, not a necessity.
+- Backpropagation is reverse bookkeeping over local derivatives, reuse, routing, and accumulation.

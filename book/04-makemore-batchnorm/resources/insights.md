@@ -1,0 +1,30 @@
+# Lesson 04 — Activations, Gradients, and BatchNorm
+
+- A 27-class model should begin near `-log(1/27) = log(27) ≈ 3.296`; a much larger loss exposes unjustified confidence.
+- Small random output weights make initial logits nearly uniform without destroying hidden-unit symmetry.
+- A good initial loss does not imply healthy hidden activations; inspect both logits and pre-activations.
+- `tanh` is nearly linear around zero and nearly flat near `±1`.
+- A saturated `tanh` unit has an almost-zero local gradient and blocks learning through that example.
+- A neuron is permanently dead only when it is saturated for every example, not merely for some examples.
+- Weight variance accumulates with fan-in, so raw unit-variance weights make wide linear layers explode.
+- Scaling weights by `1/sqrt(fan_in)` preserves linear-layer variance.
+- Kaiming gain `5/3` compensates for the variance contraction introduced by `tanh`.
+- Initialization is a balancing act: too little gain collapses signals; too much gain saturates nonlinearities.
+- BatchNorm standardizes each feature with the current batch mean and variance before applying a learned scale and shift.
+- BatchNorm `gamma` restores learnable scale; `beta` restores learnable offset.
+- A linear bias immediately before BatchNorm is redundant because batch centering removes it.
+- BatchNorm `epsilon` prevents division by zero and also bounds extreme normalization.
+- Training uses batch statistics; inference uses accumulated running statistics.
+- Running mean and variance are buffers updated by momentum, not parameters learned by gradient descent.
+- BatchNorm couples examples inside a mini-batch, injecting useful regularization but making predictions batch-dependent during training.
+- Larger batches weaken BatchNorm's stochastic regularization; smaller batches make its statistics noisier.
+- BatchNorm stabilizes forward activation scales across depth and makes initialization less fragile.
+- BatchNorm does not erase learning-rate sensitivity because weight scale still changes backward and update scales.
+- Activation histograms reveal collapsed, well-spread, and saturated nonlinearities.
+- Gradient histograms reveal whether backward signals vanish, explode, or remain comparable across layers.
+- `grad.std() / data.std()` compares the gradient signal to the current parameter scale.
+- `log10(update.std() / data.std())` measures how aggressively one step changes each parameter tensor.
+- An update/data ratio near `1e-3` is a useful rough target, not a universal law.
+- The final classifier often has exceptional gradient statistics early because it directly receives the loss signal.
+- Diagnostics turn initialization and optimization from guesswork into observable engineering.
+- Once optimization is healthy, the next bottleneck may be architecture and context rather than training stability.

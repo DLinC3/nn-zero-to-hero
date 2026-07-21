@@ -1,0 +1,37 @@
+# Lesson 06 — Hierarchical Character Modeling
+
+- A flat MLP compresses its entire context in one step, even when the context grows longer.
+- Longer context can improve predictions before the architecture changes, so it needs its own baseline.
+- A WaveNet-style hierarchy fuses characters into bigrams, bigrams into four-character groups, and groups into larger contexts.
+- Pairwise fusion doubles the receptive field at every level, so receptive field grows exponentially with depth.
+- Progressive fusion preserves local structure longer than flattening every character immediately.
+- Embedding lookup and reshaping are legitimate layers, not special cases outside the model.
+- A `Sequential` container turns the forward pass into one uniform composition of modules.
+- Modules own parameters, transform inputs, and may also carry non-gradient state.
+- A view can regroup consecutive embeddings without copying their storage.
+- `FlattenConsecutive(2)` moves adjacent time positions into the channel dimension.
+- For `(B,T,C)`, pairwise flattening produces `(B,T/2,2C)`.
+- Matrix multiplication acts on the final dimension and preserves every leading batch dimension.
+- Extra leading dimensions let one linear layer process all time groups in parallel.
+- The final singleton time dimension should be squeezed so the classifier receives `(B,C)`.
+- Shape equality is not semantic correctness; every tensor axis needs an explicit meaning.
+- A 3-D BatchNorm input has shape `(batch,time,channels)` in this notebook.
+- Reducing 3-D BatchNorm over dimension `0` alone silently learns separate statistics for each time position.
+- Correct channel statistics reduce over both batch-like dimensions `(0,1)` and retain one value per channel.
+- More samples per BatchNorm statistic make its estimates less noisy.
+- This notebook's channel-last BatchNorm convention differs from PyTorch `BatchNorm1d`'s 3-D channel-middle convention.
+- BatchNorm train/eval state must be switched explicitly before evaluation or one-example generation.
+- Running means and variances are state updated outside gradient descent.
+- Stateful layers can return plausible but wrong results when their mode is incorrect.
+- Similar train and dev loss suggests capacity can still be increased before overfitting dominates.
+- Equal parameter counts make flat-versus-hierarchical comparisons more informative, but one run is not a conclusion.
+- Channel allocation, initialization, learning rate, and random variation can hide an architecture's advantage.
+- Scale width only after every intermediate shape and layer state has been verified.
+- Smoothed training loss reveals optimization trends hidden by noisy mini-batch loss.
+- Serious model comparison needs a repeatable experiment harness and joint train/dev tracking.
+- The hierarchy implemented here matches one causal computation tree, not the full gated and residual WaveNet block.
+- A causal convolution applies the same local filter at every valid sequence position without using future inputs.
+- Dilation spaces filter inputs apart so deeper layers cover a wider context efficiently.
+- Convolution moves the sliding loop into optimized kernels and reuses overlapping intermediate features.
+- Convolution improves implementation efficiency without changing the progressive-fusion idea of one tree.
+- Neural-network development is often disciplined shape work: prototype small, inspect axes, verify state, then train.

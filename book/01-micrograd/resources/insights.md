@@ -1,0 +1,24 @@
+# Micrograd — Review Insights
+
+- A derivative measures how a tiny input change locally changes the output.
+- The gradient is the vector of partial derivatives of one scalar output with respect to its inputs.
+- A neural network is a mathematical expression whose trainable inputs are its parameters.
+- The forward pass computes values while constructing the computation graph.
+- Each operation only needs its local derivative to participate in backpropagation.
+- The chain rule multiplies an incoming gradient by the operation's local derivative.
+- Reverse topological order ensures every downstream contribution arrives before a node propagates backward.
+- Gradients must accumulate because one value can influence the output through multiple branches.
+- Addition routes the incoming gradient unchanged to both operands.
+- Multiplication sends each operand the incoming gradient times the other operand's value.
+- `tanh` sends back `(1 - tanh(x)^2) * out.grad`.
+- Primitive boundaries are arbitrary: a composite function is valid if its forward value and local backward rule are correct.
+- Numerical finite differences are gradient checks, not an efficient training algorithm.
+- A neuron is a weighted sum, a bias, and a nonlinearity expressed with the same scalar operations.
+- A layer is a collection of neurons; an MLP is a sequence of layers.
+- A scalar loss converts desired behavior into an optimization objective.
+- Gradient descent steps opposite the gradient because the gradient points toward increasing loss.
+- Learning rates that are too small waste steps; learning rates that are too large can leave the local regime and destabilize training.
+- `backward()` accumulates gradients, so every independent training step must clear old parameter gradients first.
+- PyTorch autograd applies the same mathematics to tensors for parallel efficiency.
+- Softmax plus NLL has logit gradient `probabilities - one_hot(target)`.
+- Production frameworks add scale and optimized kernels; they do not change the core forward–backward–update loop.
