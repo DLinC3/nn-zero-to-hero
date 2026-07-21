@@ -1,6 +1,6 @@
 # Neural Networks: Zero to Hero
 
-A course on neural networks that starts all the way at the basics.
+A self-contained study material to Karpathy’s Neural Networks: Zero to Hero, with notebooks reconstructed, selected intermediate steps, and a few exercises implementation of my own.
 
 ## Start
 

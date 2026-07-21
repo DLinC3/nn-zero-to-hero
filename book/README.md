@@ -7,7 +7,7 @@ Open a stage for its build and path.
 | [`01 — micrograd`](01-micrograd/) | Scalar autograd and a small neural network |
 | [`02 — makemore bigram`](02-makemore-bigram/) | Bigram language model |
 | [`03 — makemore MLP`](03-makemore-mlp/) | Embedding-based MLP language model |
-| [`04 — activations and BatchNorm`](04-makemore-batchnorm/) | Diagnosable, well-initialized deep MLP with bn|
+| [`04 — activations and BatchNorm`](04-makemore-batchnorm/) | Diagnosable, well-initialized deep MLP with batchnorm|
 | [`05 — manual backprop`](05-makemore-manual-backprop/) | Full tensor backward pass without autograd |
 | [`06 — WaveNet`](06-makemore-wavenet/) | Hierarchical character language model and fully pytorchifying |
 | [`07 — build GPT`](07-build-gpt/) | Decoder-only Transformer |
