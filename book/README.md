@@ -5,7 +5,7 @@ Open a stage for its build and path.
 | Stage | Build |
 |---|---|
 | [`01 — micrograd`](01-micrograd/) | Scalar autograd and a small neural network |
-| [`02 — makemore bigram`](02-makemore-bigram/) | Bigram language model |
+| [`02 — makemore bigram`](02-makemore-bigram/) | Bigram language model, multinomial logistic regression |
 | [`03 — makemore MLP`](03-makemore-mlp/) | Embedding-based MLP language model |
 | [`04 — activations and BatchNorm`](04-makemore-batchnorm/) | Diagnosable, well-initialized deep MLP with batchnorm|
 | [`05 — manual backprop`](05-makemore-manual-backprop/) | Full tensor backward pass without autograd |
